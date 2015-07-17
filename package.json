@@ -1,0 +1,15 @@
+{
+  "name": "chess.js",
+  "version": "0.0.1",
+  "description": "a try: chess in 1k, from ground up",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Skx <david.skx@posteo.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.9.1"
+  }
+}

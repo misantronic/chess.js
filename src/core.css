@@ -1,0 +1,90 @@
+#p {
+	margin: 0 auto;
+	border: 3px outset #f1f1f1;
+	width: 400px;
+	height: 400px;
+	line-height: 75%;
+
+	transform: scale(1.5) translateY(150px);
+
+	background-image:
+	-moz-linear-gradient(45deg, #f1f1f1 25%, transparent 25%),
+	-moz-linear-gradient(-45deg, #f1f1f1 25%, transparent 25%),
+	-moz-linear-gradient(45deg, transparent 75%, #f1f1f1 75%),
+	-moz-linear-gradient(-45deg, transparent 75%, #f1f1f1 75%);
+	background-image:
+	-webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #f1f1f1), color-stop(.25, transparent)),
+	-webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #f1f1f1), color-stop(.25, transparent)),
+	-webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f1f1f1)),
+	-webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f1f1f1));
+
+	-moz-background-size:100px 100px;
+	background-size:100px 100px;
+	-webkit-background-size:100px 101px; /* override value for shitty webkit */
+
+	background-position:0 0, 50px 0, 50px -50px, 0px 50px;
+}
+
+#p > * {
+	display: inline-block;
+	position: relative;
+	font-weight: normal;
+	font-style: normal;
+	width: 50px;
+	height: 50px;
+	font-size: 36px;
+}
+
+#p > *:after {
+	position: absolute;
+	top: 18px;
+	left: 6px;
+}
+
+#p > a:after {
+	content: '♟'
+}
+
+#p > b:after {
+	content: '♜'
+}
+
+#p > c:after {
+	content: '♞'
+}
+
+#p > d:after {
+	content: '♝'
+}
+
+#p > e:after {
+	content: '♛'
+}
+
+#p > f:after {
+	content: '♚'
+}
+
+#p > g:after {
+	content: '♙'
+}
+
+#p > h:after {
+	content: '♖'
+}
+
+#p > i:after {
+	content: '♘'
+}
+
+#p > j:after {
+	content: '♗'
+}
+
+#p > k:after {
+	content: '♕'
+}
+
+#p > l:after {
+	content: '♔'
+}
