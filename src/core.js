@@ -1,17 +1,6 @@
 var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""),
 	F, i;
 
-function d(s, e) {
-	s = "";
-	for (i = 0; i < a.length, e=a[i]; i++) {
-		s += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 'b' : 'w') + ' i=' + i + '></' + e + '>';
-	}
-
-	p.innerHTML = s;
-}
-
-d();
-
 /**
  *
  * @param e
@@ -76,10 +65,18 @@ p.onclick = function (e, f, FName, fName, allowMove, FIndex, fIndex, fType, FTyp
 
 				F = 0;
 
-				d()
+				//d()
 			}
 		}
 	}
 
+	s = "";
+	for (i = 0; i < a.length, e=a[i]; i++) {
+		s += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 'b' : 'w') + ' i=' + i + '></' + e + '>';
+	}
+
+	p.innerHTML = s;
+
 	F = fName != 'X' && !kill ? f : F;
 };
+p.onclick({});
