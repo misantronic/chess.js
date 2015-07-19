@@ -1,5 +1,5 @@
 var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""),
-	F, i;
+	F;
 
 /**
  *
