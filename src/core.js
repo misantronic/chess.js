@@ -1,10 +1,10 @@
-var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxgggggggghijkljih".split(""),
+var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""),
 	F, i;
 
-function d(s) {
+function d(s, e) {
 	s = "";
-	for(i=0; i < a.length; i++) {
-		s += '<'+a[i]+' i='+i+'></'+a[i]+'>';
+	for (i = 0; i < a.length, e=a[i]; i++) {
+		s += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 'b' : 'w') + ' i=' + i + '></' + e + '>';
 	}
 
 	p.innerHTML = s;
@@ -21,52 +21,65 @@ d();
  * @param allowMove allow figure to move
  * @param FIndex origin-index
  * @param fIndex destination-index
+ * @param {"b"|"w"} fType type of the current figure (b=black, w=white)
+ * @param {"b"|"w"} FType type of the destinations figure (b=black, w=white)
  * @param same destination equals origin
- * @param t
- * @param g
  * @param fDiff
+ * @param kill
  */
-p.onclick = function(e, f, FName, fName, allowMove, FIndex, fIndex, same, fDiff, t, g) {
+p.onclick = function (e, f, FName, fName, allowMove, FIndex, fIndex, fType, FType, same, fDiff, kill) {
 	f = e.target;
 
-	if(F) {
+	if (F) {
 		// move to a field
 		FName = F.tagName;
 		fName = f.tagName;
 		allowMove = 0;
-		FIndex = F[g="getAttribute"]('i');
-		fIndex = f[g]('i');
+		FIndex = F[i = "getAttribute"]('i');
+		fIndex = f[i]('i');
+		FType = f[i]('c');
+		fType = F[i]('c');
 		same = FIndex == fIndex;
 		fDiff = Math.abs(FIndex - fIndex);
 
-		if(same) return;
+		if (!same) {
+			//console.log("try " + F.tagName + " from " + FIndex + " to " + fIndex, fType);
 
-		console.log("try "+ F.tagName +" from "+ FIndex +" to "+ fIndex);
+			if (FName == 'A') { // pawn
+				if (fName == 'X') { // moving
+					if (fType == 'w' && FIndex - fIndex == -8 || FIndex > 47 && fDiff == 16) allowMove = 1;	// white
+					if (fType == 'b' && FIndex - fIndex == 8 || FIndex < 16 && fDiff == 16) allowMove = 1;	// black
+				} else { // killing
+					if (fDiff == 7 || fDiff == 9) allowMove = 1;
+				}
+			} else {
+				// bishop | queen
+				if ((FName == 'D' || FName == 'E') && !(fDiff % 7 && fDiff % 9)) allowMove = 1;
 
-		if(fName != 'X') { // killing
-			// bauer
-			if(FName == 'G' && (fDiff == 7 || fDiff == 9)) allowMove = 1;
-			if(FName == 'A' && (fDiff == 7 || fDiff == 9)) allowMove = 1;
-		} else { // moving
-			// white bauer
-			if(fName == 'X' && FName == 'G' && fDiff == 8 || FIndex > 47 && fDiff == 16) allowMove = 1;
+				// rook | queen
+				if ((FName == 'B' || FName == 'E') && (!(fDiff % 8) || (~~(FIndex / 8) == ~~(fIndex / 8)))) allowMove = 1;
 
-			// black bauer
-			if(fName == 'X' && FName == 'A' && fDiff == 8 || FIndex < 16 && fDiff == 16) allowMove = 1;
+				// king
+				if (FName == 'F' && (fDiff == 1 || (fDiff > 6 && fDiff < 10 ))) allowMove = 1;
 
-			// läufer
-			if((FName == 'D' || FName == 'J') && !(fDiff % 7 && fDiff % 9)) allowMove = 1;
+				// knight
+				if (FName == 'C' && (fDiff == 17 || fDiff == 15 || fDiff == 10 || fDiff == 6)) allowMove = 1;
+			}
+
+			if (fName != 'X' && fType != FType) {
+				kill = 1;
+			}
+
+			if (allowMove) {
+				a[fIndex] = fType == 'w' ? FName.toLowerCase() : FName;
+				a[FIndex] = 'x';
+
+				F = 0;
+
+				d()
+			}
 		}
-
-		if(allowMove) {
-			a[fIndex] = FName;
-			a[FIndex] = 'x';
-
-			F = 0;
-		}
-
-		d()
 	}
 
-	if(fName != 'X') F = f
+	F = fName != 'X' && !kill ? f : F;
 };

@@ -33,6 +33,12 @@
 	width: 50px;
 	height: 50px;
 	font-size: 36px;
+	box-sizing: border-box;
+	/*border: 1px solid rgba(0, 0, 0, 0);*/
+}
+
+#p > *.a {
+	/*border: 1px solid #AA0000;*/
 }
 
 #p > *:after {
@@ -41,50 +47,50 @@
 	left: 6px;
 }
 
-#p > a:after {
+#p > a[c="b"]:after {
 	content: '♟'
 }
 
-#p > b:after {
+#p > b[c="b"]:after {
 	content: '♜'
 }
 
-#p > c:after {
+#p > c[c="b"]:after {
 	content: '♞'
 }
 
-#p > d:after {
+#p > d[c="b"]:after {
 	content: '♝'
 }
 
-#p > e:after {
+#p > e[c="b"]:after {
 	content: '♛'
 }
 
-#p > f:after {
+#p > f[c="b"]:after {
 	content: '♚'
 }
 
-#p > g:after {
+#p > a[c="w"]:after {
 	content: '♙'
 }
 
-#p > h:after {
+#p > b[c="w"]:after {
 	content: '♖'
 }
 
-#p > i:after {
+#p > c[c="w"]:after {
 	content: '♘'
 }
 
-#p > j:after {
+#p > d[c="w"]:after {
 	content: '♗'
 }
 
-#p > k:after {
+#p > e[c="w"]:after {
 	content: '♕'
 }
 
-#p > l:after {
+#p > f[c="w"]:after {
 	content: '♔'
 }
