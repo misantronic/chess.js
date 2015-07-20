@@ -16,11 +16,13 @@
  */
 var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""), F;
 
+document.body[H="innerHTML"]='<x id=p />';
+
 /**
  *
  * @param {Event} e event
- * @param {Number} k kill
- * @param {String} n destination name
+ * @param {Number} k [kill]
+ * @param {String} n [destination name]
  */
 p.onclick = function (e, k, n) {
 	// set destination
@@ -40,8 +42,6 @@ p.onclick = function (e, k, n) {
 
 		// another field is selected...
 		if (!s) {
-			//console.log("try " + F.tagName + " from " + FIndex + " to " + fIndex, fType);
-
 			// pawn
 			if (N == 'A') {
 				if (n == 'X') { // moving
@@ -64,15 +64,15 @@ p.onclick = function (e, k, n) {
 				if (N == 'C' && (d == 17 || d == 15 || d == 10 || d == 6)) m = 1;
 			}
 
-			if (n != 'X' && t != T) {
-				k = 1;
-			}
+			// check kill
+			if (n != 'X' && t != T) k = 1;
 
 			if (m) {
-				a[j] = t == 'w' ? N.toLowerCase() : N;
-				a[J] = 'x';
+				// finally move
+				a[j] = t == 'w' ? N.toLowerCase() : N;	// determine which color
+				a[J] = 'x';								// empty origin-field
 
-				F = 0;
+				F = 0;									// reset origin
 			}
 		}
 	}
@@ -83,7 +83,7 @@ p.onclick = function (e, k, n) {
 		s += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 'b' : 'w') + ' i=' + i + '></' + e + '>';
 	}
 
-	p.innerHTML = s;
+	p[H] = s;
 
 	// set origin
 	F = n != 'X' && !k ? f : F;
