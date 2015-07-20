@@ -14,7 +14,7 @@
  * F = king (black)
  * @type {Array}
  */
-var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""), F;
+var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""), F, P = 'w';
 
 document.body[H="innerHTML"]='<x id=p />';
 
@@ -25,17 +25,16 @@ document.body[H="innerHTML"]='<x id=p />';
  * @param {String} n [destination name]
  */
 p.onclick = function (e, k, n) {
-	// set destination
-	f = e.target;
+	f = e.target;							// set destination
+	T = f ? f[i = "getAttribute"]('c') : 0;	// origin type
 
 	if (F) {
-		// move to a field
+		// try to move to a field
 		N = F.tagName;					// origin name
 		n = f.tagName;					// destination name
 		m = 0;							// allow movement
-		J = F[i = "getAttribute"]('i');	// index of origin
+		J = F[i]('i');					// index of origin
 		j = f[i]('i');					// index of destination
-		T = f[i]('c');					// origin type
 		t = F[i]('c');					// destination type
 		s = J == j;						// same field?
 		d = Math.abs(J - j);			// difference between origin and destination
@@ -68,11 +67,13 @@ p.onclick = function (e, k, n) {
 			if (n != 'X' && t != T) k = 1;
 
 			if (m) {
-				// finally move
+				// move
 				a[j] = t == 'w' ? N.toLowerCase() : N;	// determine which color
 				a[J] = 'x';								// empty origin-field
 
 				F = 0;									// reset origin
+
+				P = P == 'w' ? 'b' : 'w';				// switch player
 			}
 		}
 	}
@@ -86,6 +87,6 @@ p.onclick = function (e, k, n) {
 	p[H] = s;
 
 	// set origin
-	F = n != 'X' && !k ? f : F;
+	F = n != 'X' && T == P && !k ? f : F;
 };
 p.onclick({});
