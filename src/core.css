@@ -1,9 +1,10 @@
 #p {
+	display: block;
 	margin: 0 auto;
 	border: 3px outset #f1f1f1;
 	width: 400px;
 	height: 400px;
-	line-height: 75%;
+	line-height: 11px;
 
 	transform: scale(1.5) translateY(150px);
 
@@ -34,17 +35,12 @@
 	height: 50px;
 	font-size: 36px;
 	box-sizing: border-box;
-	/*border: 1px solid rgba(0, 0, 0, 0);*/
-}
-
-#p > *.a {
-	/*border: 1px solid #AA0000;*/
 }
 
 #p > *:after {
 	position: absolute;
-	top: 18px;
-	left: 6px;
+	top: 21px;
+	left: 9px;
 }
 
 #p > a[c="b"]:after {
