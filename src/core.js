@@ -33,8 +33,8 @@ p.onclick = function (e, k, n) {
 		N = F.tagName;					// origin name
 		n = f.tagName;					// destination name
 		m = 0;							// allow movement
-		J = F[i]('i');					// index of origin
-		j = f[i]('i');					// index of destination
+		J = +F[i]('i');					// index of origin
+		j = +f[i]('i');					// index of destination
 		t = F[i]('c');					// destination type
 		s = J == j;						// same field?
 		d = Math.abs(J - j);			// difference between origin and destination
