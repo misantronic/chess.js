@@ -3,11 +3,11 @@ var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split
 
 /**
  *
- * @param e
- * @param kill
- * @param n
+ * @param {Event} e event
+ * @param {Number} k kill
+ * @param {String} n destination name
  */
-p.onclick = function (e, kill, n) {
+p.onclick = function (e, k, n) {
 	f = e.target;
 
 	if (F) {
@@ -47,7 +47,7 @@ p.onclick = function (e, kill, n) {
 			}
 
 			if (n != 'X' && t != T) {
-				kill = 1;
+				k = 1;
 			}
 
 			if (m) {
@@ -66,6 +66,6 @@ p.onclick = function (e, kill, n) {
 
 	p.innerHTML = s;
 
-	F = n != 'X' && !kill ? f : F;
+	F = n != 'X' && !k ? f : F;
 };
 p.onclick({});
