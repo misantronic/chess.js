@@ -1,5 +1,20 @@
-var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""),
-	F;
+/**
+ * field setup:
+ * a = pawn (white)
+ * b = rook (white)
+ * c = knight (white)
+ * d = bishop (white)
+ * e = queen (white)
+ * f = king (white)
+ * A = pawn (black)
+ * B = rook (black)
+ * C = knight (black)
+ * D = bishop (black)
+ * E = queen (black)
+ * F = king (black)
+ * @type {Array}
+ */
+var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""), F;
 
 /**
  *
@@ -8,6 +23,7 @@ var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split
  * @param {String} n destination name
  */
 p.onclick = function (e, k, n) {
+	// set destination
 	f = e.target;
 
 	if (F) {
@@ -22,13 +38,15 @@ p.onclick = function (e, k, n) {
 		s = J == j;						// same field?
 		d = Math.abs(J - j);			// difference between origin and destination
 
+		// another field is selected...
 		if (!s) {
 			//console.log("try " + F.tagName + " from " + FIndex + " to " + fIndex, fType);
 
-			if (N == 'A') { // pawn
+			// pawn
+			if (N == 'A') {
 				if (n == 'X') { // moving
 					if (t == 'w' && J - j == -8 || J > 47 && d == 16) m = 1;	// white
-					if (t == 'b' && J - j == 8 || J < 16 && d == 16) m = 1;	// black
+					if (t == 'b' && J - j == 8 || J < 16 && d == 16) m = 1;		// black
 				} else { // killing
 					if (d == 7 || d == 9) m = 1;
 				}
@@ -59,6 +77,7 @@ p.onclick = function (e, k, n) {
 		}
 	}
 
+	// draw field
 	s = "";
 	for (i = 0; i < a.length, e=a[i]; i++) {
 		s += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 'b' : 'w') + ' i=' + i + '></' + e + '>';
@@ -66,6 +85,7 @@ p.onclick = function (e, k, n) {
 
 	p.innerHTML = s;
 
+	// set origin
 	F = n != 'X' && !k ? f : F;
 };
 p.onclick({});
