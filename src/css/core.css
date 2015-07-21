@@ -39,7 +39,7 @@
 	border: 1px solid #FFF;
 }
 
-#p > *[a="1"] {
+#p > *[a="true"] {
 	border-color: #333;
 }
 
