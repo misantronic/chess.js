@@ -20,7 +20,6 @@ var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split
 document.body[H="innerHTML"]='<x id=p />';
 
 /**
- *
  * @param {Event|String|Object} e event, placeholder
  * @param {Number|Boolean} k [kill]
  * @param {String} n [destination name]
@@ -79,7 +78,7 @@ p.onclick = function (e, k, n) {
 			}
 
 			// check kill
-			k = n != 'X' && t != T;
+			k = n != 'X' && t ^ T;
 
 			if (m) {
 				// move
@@ -105,4 +104,4 @@ p.onclick = function (e, k, n) {
 	// set origin
 	F = n != 'X' && T == P && !k ? f : F;
 };
-p.onclick({});
+p.onclick({})
