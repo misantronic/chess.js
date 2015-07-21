@@ -1,3 +1,3 @@
 # chess.js 1k
 
-a try: chess in 1k, from ground up
+A 2-player competitive chess-game in 1k
