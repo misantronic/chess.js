@@ -16,6 +16,7 @@
  */
 var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""), F, P = 'w';
 
+// prepare HTML-container
 document.body[H="innerHTML"]='<x id=p />';
 
 /**
