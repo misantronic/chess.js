@@ -20,8 +20,8 @@ document.body[H="innerHTML"]='<x id=p />';
 
 /**
  *
- * @param {Event} e event
- * @param {Number} k [kill]
+ * @param {Event|String|Object} e event, placeholder
+ * @param {Number|Boolean} k [kill]
  * @param {String} n [destination name]
  */
 p.onclick = function (e, k, n) {
@@ -53,10 +53,22 @@ p.onclick = function (e, k, n) {
 				}
 			} else {
 				// bishop | queen
-				if ((N == 'D' || N == 'E') && !(d % 7 && d % 9)) m = 1;
+				if (N == 'D' || N == 'E') {
+					// dertermine direction move-set
+					M = !(d % 7) ? 7 : !(d % 9) ? 9 : 0;
+
+					// move
+					if(M) for (m = 1, e = J > j ? j + M : J + M; e < (J > j ? J : j); e += M) if (a[e] != "x") m = 0;
+				}
 
 				// rook | queen
-				if ((N == 'B' || N == 'E') && (!(d % 8) || (~~(J / 8) == ~~(j / 8)))) m = 1;
+				if(N == 'B' || N == 'E') {
+					// dertermine horizonal or vertial move-set
+					M = ~~(J / 8) == ~~(j / 8) ? 1 : !(d % 8) ? 8 : 0;
+
+					// move
+					if(M) for (m = 1, e = J < j ? J+M : J-M; J < j ? e < j : e > j; J < j ? e+=M : e-=M) if (a[e] != "x") m = 0;
+				}
 
 				// king
 				if (N == 'F' && (d == 1 || (d > 6 && d < 10 ))) m = 1;
@@ -66,7 +78,7 @@ p.onclick = function (e, k, n) {
 			}
 
 			// check kill
-			if (n != 'X' && t != T) k = 1;
+			k = n != 'X' && t != T;
 
 			if (m) {
 				// move
