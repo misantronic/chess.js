@@ -40,13 +40,15 @@
 }
 
 #p > *[a="1"] {
-	border: 1px solid #AA0000;
+	border-color: #333;
 }
 
 #p > *:after {
 	position: absolute;
-	top: 21px;
-	left: 9px;
+	top: 20px;
+	left: 0;
+	width: 100%;
+	text-align: center;
 }
 
 #p > a[c="1"]:after {
