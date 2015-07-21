@@ -14,7 +14,7 @@
  * F = king (black)
  * @type {Array}
  */
-var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""), F, P = 'w';
+var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""), F, P = 1;
 
 // prepare HTML-container
 document.body[H="innerHTML"]='<x id=p />';
@@ -47,8 +47,8 @@ p.onclick = function (e, k, n) {
 			// pawn
 			if (N == 'A') {
 				if (n == 'X') { // moving
-					if (t == 'w' && J - j == -8 || J > 47 && d == 16) m = 1;	// white
-					if (t == 'b' && J - j == 8 || J < 16 && d == 16) m = 1;		// black
+					if (t == 1 && J - j == -8 || J > 47 && d == 16) m = 1;	// white
+					if (t == 2 && J - j == 8 || J < 16 && d == 16) m = 1;	// black
 				} else { // killing
 					if (d == 7 || d == 9) m = 1;
 				}
@@ -83,12 +83,12 @@ p.onclick = function (e, k, n) {
 
 			if (m) {
 				// move
-				a[j] = t == 'w' ? N.toLowerCase() : N;	// determine which color
+				a[j] = t == 1 ? N.toLowerCase() : N;	// determine which color
 				a[J] = 'x';								// empty origin-field
 
 				F = 0;									// reset origin
 
-				P = P == 'w' ? 'b' : 'w';				// switch player
+				P = P == 1 ? 2 : 1;						// switch player
 				p.className=P;
 			}
 		}
@@ -97,7 +97,7 @@ p.onclick = function (e, k, n) {
 	// draw field
 	s = "";
 	for (i = 0; i < a.length, e=a[i]; i++) {
-		s += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 'b' : 'w') + ' i=' + i + '></' + e + '>';
+		s += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 2 : 1) + ' i=' + i + '></' + e + '>';
 	}
 
 	p[H] = s;
