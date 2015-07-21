@@ -39,7 +39,7 @@ p.onclick = function (e, k, n) {
 		s = J == j;						// same field?
 		d = Math.abs(J - j);			// difference between origin and destination
 
-		console.log(J, "to", j, "diff:", d);
+		//console.log(J, "to", j, "diff:", d);
 
 		// another field is selected...
 		if (!s) {
