@@ -5,6 +5,6 @@ Written in vanilla JavaScript with the help of some CSS-rendering.
 
 ___
 
-<a href="https://cdn.rawgit.com/misantronic/chess.js/master/index.html">Play</a>
+<a href="https://cdn.rawgit.com/misantronic/chess.js/master/index.html" target="_blank">Play now!</a>
 <br><br>
 <img src="http://s14.postimg.org/9wqugfow1/chess_js.gif" style="max-width:510px;">
