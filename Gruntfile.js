@@ -10,7 +10,26 @@ module.exports = function(grunt) {
 
 			all: {
 				files: {
-					'dist/core.min.js' : ['src/core.js']
+					'./dist/js/core.min.js' : ['./src/js/core.js']
+				}
+			}
+		},
+
+		postcss: {
+			options: {
+				processors: [
+					require('autoprefixer-core')({
+						browsers: ['> 0%']
+					}),
+					require('cssnano')({
+						zindex: false,
+						unused: false
+					})
+				]
+			},
+			dist: {
+				files: {
+					'./dist/css/core.min.css': ['./src/css/core.css']
 				}
 			}
 		}
@@ -18,7 +37,8 @@ module.exports = function(grunt) {
 
 	// load tasks
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-postcss');
 
 	// tasks
-	grunt.registerTask('default', ['uglify']);
+	grunt.registerTask('default', ['uglify', 'postcss']);
 };

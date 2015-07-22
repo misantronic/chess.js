@@ -19,11 +19,8 @@
 	-webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #f1f1f1)),
 	-webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #f1f1f1));
 
-	-moz-background-size:100px 100px;
 	background-size:100px 100px;
-	-webkit-background-size:100px 101px; /* override value for shitty webkit */
-
-	background-position:0 0, 50px 0, 50px -50px, 0px 50px;
+	background-position:0 0, 50px 0, 50px -50px, 0 50px;
 }
 
 #p[class="2"] {
