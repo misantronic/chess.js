@@ -88,7 +88,7 @@ p.onclick = function (e, k, n) {
 				F = 0;									// reset origin
 
 				P = P == 1 ? 2 : 1;						// switch player
-				p.className=P;
+				p.className = P;
 			}
 		}
 	}
