@@ -1,11 +1,7 @@
 # chess.js 1k
 
 A 2-player competitive chess-game in ~1k.
-
-___
-
-- All logic and events are written in vanilla JavaScript.
-- All visible Elements such as figures, checkerboard and text are rendered with CSS
+Written in vanilla JavaScript with the help of some CSS-rendering.
 
 ___
 
