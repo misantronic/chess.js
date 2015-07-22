@@ -1,7 +1,7 @@
 {
   "name": "chess.js",
-  "version": "0.0.1",
-  "description": "A 2-player competitive chess-game in 1k",
+  "version": "0.1.0",
+  "description": "A competitive 2-player chess-game in ~1k",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
