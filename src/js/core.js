@@ -59,7 +59,7 @@ p.onclick = function (e, k, n) {
 
 				// rook | queen
 				if(N == 'B' || N == 'E')
-					// dertermine horizonal or vertial move-set
+					// dertermine horizontal or vertial move-set
 					if(M = ~~(J / 8) == ~~(j / 8) ? 1 : !(d % 8) ? 8 : 0)
 						// move
 						for (m = 1, e = J < j ? J+M : J-M; J < j ? e < j : e > j; J < j ? e+=M : e-=M) if (a[e] != "x") m = 0;
