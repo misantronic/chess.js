@@ -10,7 +10,8 @@ module.exports = function(grunt) {
 
 			all: {
 				files: {
-					'./dist/js/core.min.js' : ['./src/js/core.js']
+					'./dist/js/core.min.js' : ['./src/js/core.js'],
+					'./dist/js/ai.min.js' : ['./src/js/ai.js']
 				}
 			}
 		},
