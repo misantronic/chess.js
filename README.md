@@ -1,4 +1,4 @@
-# chess.js 1k
+# <img src="http://s18.postimg.org/v16p9rv2t/chess_js_knight.gif"/> chess.js 1k
 
 A 2-player competitive chess-game in ~1k.<br>
 Written in vanilla JavaScript with the help of some CSS-rendering.
