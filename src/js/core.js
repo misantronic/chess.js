@@ -64,11 +64,10 @@ p.onclick = function (e, k, n) {
 						// move
 						for (m = 1, e = J < j ? J+M : J-M; J < j ? e < j : e > j; J < j ? e+=M : e-=M) if (a[e] != "x") m = 0;
 
-				// king
-				if (N == 'F' && (d == 1 || (d > 6 && d < 10 ))) m = 1;
-
-				// knight
-				if (N == 'C' && (d == 17 || d == 15 || d == 10 || d == 6)) m = 1;
+				if (
+					(N == 'F' && (d == 1 || (d > 6 && d < 10 ))) || 			// king
+					(N == 'C' && (d == 17 || d == 15 || d == 10 || d == 6))		// knight
+				) m = 1;
 			}
 
 			// check kill
@@ -76,24 +75,21 @@ p.onclick = function (e, k, n) {
 
 			if (m) {
 				// move
-				a[j] = t == 1 ? N.toLowerCase() : N;	// determine which color
+				a[j] = t == 1 ? N.toLowerCase() : N;	// determine which player
 				a[J] = 'x';								// empty origin-field
 
 				F = 0;									// reset origin
 
-				P = P == 1 ? 2 : 1;						// switch player
-				p.className = P;
+				p.className = P = P == 1 ? 2 : 1;		// switch player
 			}
 		}
 	}
 
 	// draw field
-	s = "";
+	p[H] = "";
 	for (i = 0; i < a.length, e=a[i]; i++) {
-		s += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 2 : 1) + ' i=' + i + '></' + e + '>';
+		p[H] += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 2 : 1) + ' i=' + i + '></' + e + '>';
 	}
-
-	p[H] = s;
 
 	// set origin
 	F = n != 'X' && T == P && !k ? f : F;
