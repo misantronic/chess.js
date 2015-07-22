@@ -36,39 +36,33 @@ p.onclick = function (e, k, n) {
 		J = +F[i]('i');					// index of origin
 		j = +f[i]('i');					// index of destination
 		t = F[i]('c');					// destination type
-		s = J == j;						// same field?
-		d = Math.abs(J - j);			// difference between origin and destination
+		s = J ^ j;						// not same field?
+		D = J - j;						// difference between origin and destination
+		d = Math.abs(D);				// absolute difference between origin and destination
 
 		//console.log(J, "to", j, "diff:", d);
 
 		// another field is selected...
-		if (!s) {
+		if (s) {
 			// pawn
 			if (N == 'A') {
-				if (n == 'X') { // moving
-					if (t == 1 && J - j == -8 || J > 47 && d == 16) m = 1;	// white
-					if (t == 2 && J - j == 8 || J < 16 && d == 16) m = 1;	// black
-				} else { // killing
-					if (d == 7 || d == 9) m = 1;
-				}
+				m = n == 'X'
+					? (t == 1 && D == -8 || J > 47 && d == 16) || (t == 2 && D == 8 || J < 16 && d == 16)	// pawn moving
+					: (t == 1 && (D == -9 || D == -7)) || (t == 2 && (D == 9 || D == 7));					// pawn killing
 			} else {
 				// bishop | queen
-				if (N == 'D' || N == 'E') {
+				if (N == 'D' || N == 'E')
 					// dertermine direction move-set
-					M = !(d % 7) ? 7 : !(d % 9) ? 9 : 0;
-
-					// move
-					if(M) for (m = 1, e = J > j ? j + M : J + M; e < (J > j ? J : j); e += M) if (a[e] != "x") m = 0;
-				}
+					if(M = !(d % 7) ? 7 : !(d % 9) ? 9 : 0)
+						// move
+						for (m = 1, e = J > j ? j + M : J + M; e < (J > j ? J : j); e += M) if (a[e] != "x") m = 0;
 
 				// rook | queen
-				if(N == 'B' || N == 'E') {
+				if(N == 'B' || N == 'E')
 					// dertermine horizonal or vertial move-set
-					M = ~~(J / 8) == ~~(j / 8) ? 1 : !(d % 8) ? 8 : 0;
-
-					// move
-					if(M) for (m = 1, e = J < j ? J+M : J-M; J < j ? e < j : e > j; J < j ? e+=M : e-=M) if (a[e] != "x") m = 0;
-				}
+					if(M = ~~(J / 8) == ~~(j / 8) ? 1 : !(d % 8) ? 8 : 0)
+						// move
+						for (m = 1, e = J < j ? J+M : J-M; J < j ? e < j : e > j; J < j ? e+=M : e-=M) if (a[e] != "x") m = 0;
 
 				// king
 				if (N == 'F' && (d == 1 || (d > 6 && d < 10 ))) m = 1;
