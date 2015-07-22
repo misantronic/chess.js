@@ -91,3 +91,186 @@
 #p > f[c="1"]:after {
 	content: '♔'
 }
+
+#p > *:before {
+	position: absolute;
+	left: -30px;
+	top: 20px;
+	font-size: 16px;
+	color: #666;
+}
+
+#p > *:nth-child(1):before {
+	content: '1';
+}
+
+#p > *:nth-child(9):before {
+	content: '2';
+}
+
+#p > *:nth-child(17):before {
+	content: '3';
+}
+
+#p > *:nth-child(25):before {
+	content: '4';
+}
+
+#p > *:nth-child(33):before {
+	content: '5';
+}
+
+#p > *:nth-child(41):before {
+	content: '6';
+}
+
+#p > *:nth-child(49):before {
+	content: '7';
+}
+
+#p > *:nth-child(57):before {
+	content: '8';
+}
+
+#p > *:nth-child(15):before {
+	content: '1';
+	left: 120px;
+	top: -30px;
+}
+
+#p > *:nth-child(16):before {
+	content: '2';
+	left: 70px;
+}
+
+#p > *:nth-child(24):before {
+	content: '3';
+	left: 70px;
+}
+
+#p > *:nth-child(32):before {
+	content: '4';
+	left: 70px;
+}
+
+#p > *:nth-child(40):before {
+	content: '5';
+	left: 70px;
+}
+
+#p > *:nth-child(48):before {
+	content: '6';
+	left: 70px;
+}
+
+#p > *:nth-child(56):before {
+	content: '7';
+	left: 70px;
+}
+
+#p > *:nth-child(55):before {
+	content: '8';
+	left: 120px;
+	top: 70px;
+}
+
+#p > *:nth-child(64):before {
+	content: '8';
+	left: 70px;
+}
+
+#p > *:nth-child(50):before {
+	content: 'A';
+	top: 120px;
+	left: -30px;
+}
+
+#p > *:nth-child(58):before {
+	content: 'B';
+	top: 70px;
+	left: 20px;
+}
+
+#p > *:nth-child(59):before {
+	content: 'C';
+	top: 70px;
+	left: 20px;
+}
+
+#p > *:nth-child(60):before {
+	content: 'D';
+	top: 70px;
+	left: 20px;
+}
+
+#p > *:nth-child(61):before {
+	content: 'E';
+	top: 70px;
+	left: 20px;
+}
+
+#p > *:nth-child(62):before {
+	content: 'F';
+	top: 70px;
+	left: 20px;
+}
+
+#p > *:nth-child(63):before {
+	content: 'G';
+	top: 70px;
+	left: 20px;
+}
+
+#p > *:nth-child(64):before {
+	content: 'H';
+	top: 70px;
+	left: 20px;
+}
+
+#p > *:nth-child(10):before {
+	content: 'A';
+	top: -85px;
+	left: -33px;
+}
+
+#p > *:nth-child(2):before {
+	content: 'B';
+	top: -35px;
+	left: 20px;
+}
+
+#p > *:nth-child(3):before {
+	content: 'C';
+	top: -35px;
+	left: 20px;
+}
+
+#p > *:nth-child(4):before {
+	content: 'D';
+	top: -35px;
+	left: 20px;
+}
+
+#p > *:nth-child(5):before {
+	content: 'E';
+	top: -35px;
+	left: 20px;
+}
+
+#p > *:nth-child(6):before {
+	content: 'F';
+	top: -35px;
+	left: 20px;
+}
+
+#p > *:nth-child(7):before {
+	content: 'G';
+	top: -35px;
+	left: 20px;
+}
+
+#p > *:nth-child(8):before {
+	content: 'H';
+	top: -35px;
+	left: 20px;
+}
