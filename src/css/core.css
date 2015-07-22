@@ -36,6 +36,11 @@
 	height: 50px;
 	font-size: 36px;
 	box-sizing: border-box;
+	border: 1px solid #FFF;
+}
+
+#p > *[a="1"] {
+	border: 1px solid #AA0000;
 }
 
 #p > *:after {
