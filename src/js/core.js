@@ -14,7 +14,7 @@
  * F = king (black)
  * @type {Array}
  */
-var a = "bcdefdcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDEFDCB".split(""), F, P = 1;
+var a = "bcdfedcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDFEDCB".split(""), F, P = 1;
 
 // prepare HTML-container
 document.body[H="innerHTML"]='<x id=p />';
