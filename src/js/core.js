@@ -14,7 +14,7 @@
  * F = king (black)
  * @type {Array}
  */
-var a = "bcdfedcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDFEDCB".split(""), F, P = 1;
+var a = "bcdfedcbaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAAAAAAAABCDFEDCB".split(""), F, P = 0;
 
 // prepare HTML-container
 document.body[H="innerHTML"]='<x id=p />';
@@ -35,7 +35,7 @@ p.onclick = function (e, k, n) {
 		m = 0;							// allow movement
 		J = +F[i]('i');					// index of origin
 		j = +f[i]('i');					// index of destination
-		t = F[i]('c');					// destination type
+		t = +F[i]('c');					// destination type
 		s = J ^ j;						// not same field?
 		D = J - j;						// difference between origin and destination
 		d = Math.abs(D);				// absolute difference between origin and destination
@@ -47,8 +47,8 @@ p.onclick = function (e, k, n) {
 			// pawn
 			if (N == 'A') {
 				m = n == 'X'
-					? (t == 1 && D == -8 || J > 47 && d == 16) || (t == 2 && D == 8 || J < 16 && d == 16)	// pawn moving
-					: (t == 1 && (D == -9 || D == -7)) || (t == 2 && (D == 9 || D == 7));					// pawn killing
+					? (!t && D == -8 || J > 47 && d == 16) || (t && D == 8 || J < 16 && d == 16)	// pawn moving
+					: (!t && (D == -9 || D == -7)) || (t && (D == 9 || D == 7));					// pawn killing
 			} else {
 				// bishop | queen
 				if (N == 'D' || N == 'E')
@@ -75,12 +75,12 @@ p.onclick = function (e, k, n) {
 
 			if (m) {
 				// move
-				a[j] = t == 1 ? N.toLowerCase() : N;	// determine which player
+				a[j] = t ? N : N.toLowerCase();			// determine which player
 				a[J] = 'x';								// empty origin-field
 
 				F = 0;									// reset origin
 
-				p.className = P = P == 1 ? 2 : 1;		// switch player
+				p.className = P = P ? 0 : 1;			// switch player
 			}
 		}
 	}
@@ -88,7 +88,7 @@ p.onclick = function (e, k, n) {
 	// draw field
 	p[H] = "";
 	for (i = 0; i < a.length, e=a[i]; i++) {
-		p[H] += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 2 : 1) + ' i=' + i + '></' + e + '>';
+		p[H] += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 1 : 0) + ' i=' + i + '></' + e + '>';
 	}
 
 	// set origin

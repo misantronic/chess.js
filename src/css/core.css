@@ -23,7 +23,7 @@
 	background-position:0 0, 50px 0, 50px -50px, 0 50px;
 }
 
-#p[class="2"] {
+#p[class="1"] {
 	border-color: #111;
 }
 
@@ -44,51 +44,51 @@
 	left: 9px;
 }
 
-#p > a[c="2"]:after {
+#p > a[c="1"]:after {
 	content: '♟'
 }
 
-#p > b[c="2"]:after {
+#p > b[c="1"]:after {
 	content: '♜'
 }
 
-#p > c[c="2"]:after {
+#p > c[c="1"]:after {
 	content: '♞'
 }
 
-#p > d[c="2"]:after {
+#p > d[c="1"]:after {
 	content: '♝'
 }
 
-#p > e[c="2"]:after {
+#p > e[c="1"]:after {
 	content: '♛'
 }
 
-#p > f[c="2"]:after {
+#p > f[c="1"]:after {
 	content: '♚'
 }
 
-#p > a[c="1"]:after {
+#p > a[c="0"]:after {
 	content: '♙'
 }
 
-#p > b[c="1"]:after {
+#p > b[c="0"]:after {
 	content: '♖'
 }
 
-#p > c[c="1"]:after {
+#p > c[c="0"]:after {
 	content: '♘'
 }
 
-#p > d[c="1"]:after {
+#p > d[c="0"]:after {
 	content: '♗'
 }
 
-#p > e[c="1"]:after {
+#p > e[c="0"]:after {
 	content: '♕'
 }
 
-#p > f[c="1"]:after {
+#p > f[c="0"]:after {
 	content: '♔'
 }
 
