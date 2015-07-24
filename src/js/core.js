@@ -24,9 +24,10 @@ document.body[H = "innerHTML"] = '<x id=p />';
  * @param {Number|Boolean} k [kill]
  * @param {String} n [destination name]
  */
-p.onclick = function(e, k, n) {
+p.onclick = function (e, k, n) {
 	f = e.target;							// set destination
-	T = f ? f[i = "getAttribute"]('c') : 0;	// origin type
+	t = f ? f[i = "getAttribute"]('c') : 0;	// origin type
+	j = f ? +f[i]('i') : -1;				// index of destination
 
 	if (F) {
 		// try to move to a field
@@ -34,8 +35,7 @@ p.onclick = function(e, k, n) {
 		n = f.tagName;					// destination name
 		m = 0;							// allow movement
 		J = +F[i]('i');					// index of origin
-		j = +f[i]('i');					// index of destination
-		t = +F[i]('c');					// destination type
+		T = +F[i]('c');					// destination type
 		s = J ^ j;						// not same field?
 		D = J - j;						// difference between origin and destination
 		d = Math.abs(D);				// absolute difference between origin and destination
@@ -47,8 +47,8 @@ p.onclick = function(e, k, n) {
 			// pawn
 			if (N == 'A') {
 				m = n == 'X'
-					? (!t && D == -8 || J > 47 && d == 16) || (t && D == 8 || J < 16 && d == 16)	// pawn moving
-					: (!t && (D == -9 || D == -7)) || (t && (D == 9 || D == 7));					// pawn killing
+					? (!T && D == -8 || J > 47 && d == 16) || (T && D == 8 || J < 16 && d == 16)	// pawn moving
+					: (!T && (D == -9 || D == -7)) || (T && (D == 9 || D == 7));					// pawn killing
 			} else {
 				// bishop | queen
 				if (N == 'D' || N == 'E')
@@ -71,11 +71,11 @@ p.onclick = function(e, k, n) {
 			}
 
 			// check kill
-			k = n != 'X' && t ^ T;
+			k = n != 'X' && T ^ t;
 
 			if (m) {
 				// move
-				a[j] = t ? N : N.toLowerCase();			// determine which player
+				a[j] = T ? N : N.toLowerCase();			// determine which player
 				a[J] = 'x';								// empty origin-field
 
 				F = 0;									// reset origin
@@ -86,11 +86,12 @@ p.onclick = function(e, k, n) {
 	}
 
 	// draw field
-	for (p[H] = "", i = 0; i < a.length, e = a[i]; i++) {
-		p[H] += '<' + e + ' c=' + (e.charCodeAt(0) < 97 ? 1 : 0) + ' i=' + i + '></' + e + '>';
+	p[H] = "";
+	for (i = 0; i < a.length, e = a[i]; i++) {
+		p[H] += '<' + e + ' c=' + (e == 'x' ? 2 : e.charCodeAt(0) < 97 ? 1 : 0) + ' i=' + i + ' a='+ (t == P && i == j) +'></' + e + '>';
 	}
 
 	// set origin
-	F = n != 'X' && T == P && !k ? f : F;
+	F = n != 'X' && t == P && !k ? f : F;
 };
 p.onclick({})
