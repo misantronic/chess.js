@@ -24,7 +24,7 @@ document.body[H = "innerHTML"] = '<x id=p />';
  * @param {Number|Boolean} k [kill]
  * @param {String} n [destination name]
  */
-p.onclick = function (e, k, n) {
+p.onclick = function(e, k, n) {
 	f = e.target;							// set destination
 	t = f ? f[i = "getAttribute"]('c') : 0;	// origin type
 	j = f ? +f[i]('i') : -1;				// index of destination
@@ -86,9 +86,8 @@ p.onclick = function (e, k, n) {
 	}
 
 	// draw field
-	p[H] = "";
-	for (i = 0; i < a.length, e = a[i]; i++) {
-		p[H] += '<' + e + ' c=' + (e == 'x' ? 2 : e.charCodeAt(0) < 97 ? 1 : 0) + ' i=' + i + ' a='+ (t == P && i == j) +'></' + e + '>';
+	for (p[H] = "", i = 0; i < a.length, e = a[i]; i++) {
+		p[H] += '<' + e + ' c=' + (e == 'x' ? 2 : e.charCodeAt(0) < 97 ? 1 : 0) + ' i=' + i + ' a=' + (t == P && i == j) + '></' + e + '>';
 	}
 
 	// set origin
