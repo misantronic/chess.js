@@ -36,7 +36,7 @@ p.onclick = function(e, k, n) {
 		m = 0;							// allow movement
 		J = +F[i]('i');					// index of origin
 		T = +F[i]('c');					// destination type
-		s = J ^ j;						// not same field?
+		s = J ^ j && t ^ T;				// not same field?
 		D = J - j;						// difference between origin and destination
 		d = Math.abs(D);				// absolute difference between origin and destination
 
